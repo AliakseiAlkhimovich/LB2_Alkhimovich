@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LB2_1_Alkhimovich", "LB2_Alkhimovich\LB2_1_Alkhimovich.csproj", "{B6289E2E-46E2-4BD8-A9CD-CF935CFE067B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LB2_2_Alkhimovich", "LB2_2_Alkhimovich\LB2_2_Alkhimovich.csproj", "{1CC2C3D4-82FA-4A0C-8CFC-E1706481BB6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6289E2E-46E2-4BD8-A9CD-CF935CFE067B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6289E2E-46E2-4BD8-A9CD-CF935CFE067B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6289E2E-46E2-4BD8-A9CD-CF935CFE067B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6289E2E-46E2-4BD8-A9CD-CF935CFE067B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CC2C3D4-82FA-4A0C-8CFC-E1706481BB6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CC2C3D4-82FA-4A0C-8CFC-E1706481BB6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CC2C3D4-82FA-4A0C-8CFC-E1706481BB6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CC2C3D4-82FA-4A0C-8CFC-E1706481BB6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A00F5D8-A36F-42E0-8E89-9D739763B436}
+	EndGlobalSection
+EndGlobal

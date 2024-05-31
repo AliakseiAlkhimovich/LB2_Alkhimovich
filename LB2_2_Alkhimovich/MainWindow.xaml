@@ -1,0 +1,105 @@
+﻿<Window x:Class="LB2_2_Alkhimovich.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LB2_2_Alkhimovich"
+        mc:Ignorable="d"
+        Title="Сотрудники" Height="700" Width="800" ResizeMode="NoResize" Top="170" Left="450">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="0,0,0,-0">
+        <ListBox x:Name="LB" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,286,0,0"/>
+        <Grid Margin="10,67,10,458">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="FIO" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22" Margin="0,21,0,0"/>
+            <TextBox x:Name="Zp" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22" Grid.Column="1" Margin="0,21,0,0" TextAlignment="Center"/>
+            <ComboBox x:Name="comboBoxPosition" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Grid.Column="2" Height="22" Margin="0,21,0,0"/>
+            <ComboBox x:Name="comboBoxCity" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Grid.Column="4" Height="22" Margin="0,21,0,0"/>
+            <ComboBox x:Name="comboBoxStreet" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Grid.Column="5" Height="22" Margin="0,21,0,0"/>
+            <TextBox x:Name="Home" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Height="22" Grid.Column="6" TextAlignment="Center" Margin="0,21,0,0"/>
+            <Label Content="Фамилия И.О." HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Width="112" HorizontalContentAlignment="Center" FontSize="11"/>
+            <Label Content="Зарплата (руб.)" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Width="112" HorizontalContentAlignment="Center" FontSize="11" Grid.Column="1"/>
+            <Label Content="Должность" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Width="112" HorizontalContentAlignment="Center" FontSize="11" Grid.Column="2"/>
+            <Label Content="Город" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Width="112" HorizontalContentAlignment="Center" FontSize="11" Grid.Column="4"/>
+            <Label Content="Улица" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Width="112" HorizontalContentAlignment="Center" FontSize="11" Grid.Column="5"/>
+            <Label Content="№ дома" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Width="112" HorizontalContentAlignment="Center" FontSize="11" Grid.Column="6" Margin="0,-4,0,0"/>
+            <Button x:Name="Del1" ToolTip="Удалить выбранную должность" Grid.Column="2" Content="-" HorizontalAlignment="Left" Margin="97,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="23" Background="#FFFB5847" FontSize="14" FontWeight="Bold" Height="23" Click="DeleteDataMethod"/>
+            <Button x:Name="Долж" ToolTip="Добавить новую должность" Grid.Column="2" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="23" Background="#FF04F740" FontSize="14" FontWeight="Bold" Height="23" Click="btn_Click"/>
+            <Button x:Name="Гор" ToolTip="Добавить новый город" Grid.Column="4" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="23" Background="#FF04F740" FontSize="14" FontWeight="Bold" Height="23" Click="btn_Click"/>
+            <Button x:Name="Del2" ToolTip="Удалить выбранный город" Grid.Column="4" Content="-" HorizontalAlignment="Left" Margin="97,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="23" Background="#FFFB5847" FontSize="14" FontWeight="Bold" Height="23" Click="DeleteDataMethod"/>
+            <Button x:Name="Ул" ToolTip="Добавить новую улицу" Grid.Column="5" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="23" Background="#FF04F740" FontSize="14" FontWeight="Bold" Height="23" Click="btn_Click"/>
+            <Button x:Name="Del3" ToolTip="Удалить выбранную улицу" Grid.Column="5" Content="-" HorizontalAlignment="Left" Margin="97,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="23" Background="#FFFB5847" FontSize="14" FontWeight="Bold" Height="23" Click="DeleteDataMethod"/>
+            <Button Grid.Column="6" Content="Добавить сотрудника" HorizontalAlignment="Center" Margin="0,55,0,0" Grid.Row="1" VerticalAlignment="Top" Width="125" Height="25" Background="#FFCCFDBB" Click="SaveToFile"/>
+        </Grid>
+        <Button Content="Вывод информации" HorizontalAlignment="Left" Margin="647,256,0,0" VerticalAlignment="Top" Width="126" Height="25" Background="#FFD6DCFF" Click="LoadDataLB"/>
+
+    </Grid>
+</Window>
