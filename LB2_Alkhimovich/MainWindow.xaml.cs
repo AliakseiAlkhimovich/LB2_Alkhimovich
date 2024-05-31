@@ -82,12 +82,11 @@ namespace LB2_Alkhimovich
         private double CalculateS(double x, int n)
         {
             double s = 0;
-            double term;
-            for (int k = 0; k <= n; k++)
+            double term=1;
+            for (int k = 1; k <= n; k++)
             {
-   
-                    term = Math.Pow(Math.Log(3), k) / Factorial(k);
-                s += term * Math.Pow(x, k);
+                    term *= (Math.Log(3)/ k) * x;
+                    s += term;
             }
             return s;
         }
