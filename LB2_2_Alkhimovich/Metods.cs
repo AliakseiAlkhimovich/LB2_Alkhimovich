@@ -52,7 +52,13 @@ namespace LB2_2_Alkhimovich
             }
             catch (FileNotFoundException)
             {
-                MessageBox.Show("Файл не найден. Пожалуйста, убедитесь, что файл ComboData.txt существует.");
+                using (StreamWriter writer = File.CreateText(filePath))
+                {
+                    writer.WriteLine("");
+                    writer.WriteLine("");
+                    writer.WriteLine("");
+                }
+                MessageBox.Show("Файл не найден. Создан новый файл.");
             }
         }
         public static void SaveDataToFile(string filePath, TextBox FIO, TextBox Zp, ComboBox comboBoxPosition, ComboBox comboBoxCity, ComboBox comboBoxStreet, TextBox Home)
@@ -90,7 +96,8 @@ namespace LB2_2_Alkhimovich
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Произошла ошибка при записи в файл: {ex.Message}");
+                File.Create(filePath).Close();
+                MessageBox.Show("Файл не найден. Создан новый пустой файл.");
             }
         }
         public static void LoadDataToListBox(string filePath, ListBox listBox)
@@ -111,7 +118,8 @@ namespace LB2_2_Alkhimovich
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Произошла ошибка при чтении файла: {ex.Message}");
+                File.Create(filePath).Close();
+                MessageBox.Show("Файл не найден. Создан новый пустой файл.");
             }
         }
     }
